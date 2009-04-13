@@ -15,6 +15,7 @@
 - (void)viewDidLoad
 {
 	self.title = @"Fast Scrolling Example";
+	self.navigationItem.leftBarButtonItem = self.editButtonItem;
     [super viewDidLoad];
 }
 
