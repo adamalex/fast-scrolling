@@ -52,6 +52,11 @@ static UIFont *lastTextFont = nil;
 	[self setNeedsDisplay]; 
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+	[super setEditing:editing animated:animated];
+	[self setNeedsDisplay];
+}
+
 - (void)drawContentView:(CGRect)r
 {
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -69,7 +74,7 @@ static UIFont *lastTextFont = nil;
 	CGContextFillRect(context, r);
 	
 	CGPoint p;
-	p.x = 12;
+	p.x = (self.editing) ? 42 : 12;
 	p.y = 9;
 	
 	[textColor set];
