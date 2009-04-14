@@ -52,11 +52,21 @@ static UIFont *lastTextFont = nil;
 	[self setNeedsDisplay]; 
 }
 
+- (void)layoutSubviews
+{
+	CGRect b = [self bounds];
+	b.size.height -= 1; // leave room for the separator line
+	b.size.width += 30; // allow extra width to slide for editing
+	b.origin.x -= (self.editing) ? 0 : 30; // start 30px left unless editing
+	[contentView setFrame:b];
+    [super layoutSubviews];
+}
+
 - (void)drawContentView:(CGRect)r
 {
 	CGContextRef context = UIGraphicsGetCurrentContext();
 
-	UIColor *backgroundColor = [UIColor whiteColor];
+	UIColor *backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
 	UIColor *textColor = [UIColor blackColor];
 	
 	if(self.selected)
@@ -69,7 +79,7 @@ static UIFont *lastTextFont = nil;
 	CGContextFillRect(context, r);
 	
 	CGPoint p;
-	p.x = 12;
+	p.x = 42;
 	p.y = 9;
 	
 	[textColor set];

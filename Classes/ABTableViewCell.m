@@ -62,14 +62,6 @@
 	[super dealloc];
 }
 
-- (void)setFrame:(CGRect)f
-{
-	[super setFrame:f];
-	CGRect b = [self bounds];
-	b.size.height -= 1; // leave room for the seperator line
-	[contentView setFrame:b];
-}
-
 - (void)setNeedsDisplay
 {
 	[super setNeedsDisplay];
