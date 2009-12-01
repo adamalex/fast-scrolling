@@ -61,4 +61,9 @@ static NSString *randomWords[] = {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	// This method must exist to enable swipe-to-delete
+}
+
 @end
