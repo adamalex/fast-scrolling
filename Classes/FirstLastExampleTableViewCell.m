@@ -57,7 +57,7 @@ static UIFont *lastTextFont = nil;
 	CGRect b = [self bounds];
 	b.size.height -= 1; // leave room for the separator line
 	b.size.width += 30; // allow extra width to slide for editing
-	b.origin.x -= (self.editing) ? 0 : 30; // start 30px left unless editing
+	b.origin.x -= (self.editing && !self.showingDeleteConfirmation) ? 0 : 30; // start 30px left unless editing
 	[contentView setFrame:b];
     [super layoutSubviews];
 }
